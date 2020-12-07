@@ -1,0 +1,1 @@
+{"version":3,"file":"fetchGuildChannel.js","sourceRoot":"","sources":["../../../../src/commands/ConfigEdit/functions/fetchGuildChannel.ts"],"names":[],"mappings":";;;AAEA,SAAgB,iBAAiB,CAAC,KAAY,EAAE,EAAa;IAC5D,IAAI;QACH,OAAO,KAAK,CAAC,QAAQ,CAAC,KAAK,CAAC,GAAG,CAAC,EAAE,CAAC,CAAC;KACpC;IAAC,MAAM,GAAE;AACX,CAAC;AAJD,8CAIC"}

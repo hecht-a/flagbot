@@ -1,0 +1,1 @@
+{"version":3,"file":"CommandError.js","sourceRoot":"","sources":["../../src/exceptions/CommandError.ts"],"names":[],"mappings":";;;AAAA,MAAa,YAAa,SAAQ,KAAK;IACtC,YAAY,OAAe;QAC1B,KAAK,CAAC,OAAO,CAAC,CAAC;QACf,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,WAAW,CAAC,IAAI,CAAC;IACnC,CAAC;CACD;AALD,oCAKC"}

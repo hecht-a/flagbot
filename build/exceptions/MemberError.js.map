@@ -1,0 +1,1 @@
+{"version":3,"file":"MemberError.js","sourceRoot":"","sources":["../../src/Exceptions/MemberError.ts"],"names":[],"mappings":";;;AAAA,MAAa,WAAY,SAAQ,KAAK;IACrC,YAAY,OAAO,GAAG,mBAAmB;QACxC,KAAK,CAAC,OAAO,CAAC,CAAC;QACf,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,WAAW,CAAC,IAAI,CAAC;IACnC,CAAC;CACD;AALD,kCAKC"}

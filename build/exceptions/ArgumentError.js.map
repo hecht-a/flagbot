@@ -1,0 +1,1 @@
+{"version":3,"file":"ArgumentError.js","sourceRoot":"","sources":["../../src/Exceptions/ArgumentError.ts"],"names":[],"mappings":";;;AAAA,6CAA0C;AAE1C,MAAa,aAAc,SAAQ,uBAAU;IAC5C,YAAY,OAAe;QAC1B,KAAK,CAAC,OAAO,CAAC,CAAC;QACf,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,WAAW,CAAC,IAAI,CAAC;IACnC,CAAC;CACD;AALD,sCAKC"}

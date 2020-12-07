@@ -1,0 +1,1 @@
+{"version":3,"file":"role.js","sourceRoot":"","sources":["../../../../src/commands/ConfigEdit/filters/role.ts"],"names":[],"mappings":";;;AAEA,0EAAuE;AACvE,sDAAmD;AAEnD,SAAgB,aAAa,CAAC,YAA0B;IACvD,MAAM,EAAE,OAAO,EAAE,GAAG,YAAY,CAAC;IAEjC,OAAO,CAAC,MAAe,EAAW,EAAE,CAAC,OAAO,CAC3C,qBAAS,CAAC,OAAO,CAAC,KAAc,EAAE,yCAAmB,CAAC,MAAM,CAAC,OAAO,CAAW,CAAC,CAChF,CAAC;AACH,CAAC;AAND,sCAMC"}
