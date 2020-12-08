@@ -1,0 +1,10 @@
+{
+    "token": "token",
+    "botOwner": "id",
+    "status": "online",
+    "game": {
+        "active": true,
+        "type": "LISTENING",
+        "name": "you"
+    }
+}
