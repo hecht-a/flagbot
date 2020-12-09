@@ -22,6 +22,10 @@ export function getMainEmbed(message: Message): MessageEmbed {
 		.addField("🖋️ Leaving message", "Change leaving message", true)
 		.addField("🤐 Mute role", "Change mute role", true)
 		.addField("💻 Commands channel", "Change commands channel", true)
+		.addField("🗣 Language", "Change bot language for the server", true)
+		.addField("\u200b", "\u200b", true)
 		.addField("\u200b", "\u200b")
-		.addField("✅ Finish", "Delete this embed", true);
+		.addField("\u200b", "\u200b", true)
+		.addField("✅ Finish", "Delete this embed", true)
+		.addField("\u200b", "\u200b", true);
 }

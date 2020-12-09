@@ -33,6 +33,8 @@ import { getMuteRoleEmbed } from "../muteRole/embed";
 import { getMuteRoleReactionsEffects } from "../muteRole/reactions";
 import { getCommandsChannelEmbed } from "../commandsChannel/embed";
 import { getCommandsChannelReactionsEffects } from "../commandsChannel/reactions";
+import { getLanguageEmbed } from "../language/embed";
+import { getLanguageReactionsEffects } from "../language/reactions";
 
 export function getMainReactionsEffects(message: Message, author: User): ReactionsEffects {
 	return ({
@@ -178,6 +180,15 @@ export function getMainReactionsEffects(message: Message, author: User): Reactio
 			reactions: "✏🚪",
 			reactionsEffects(): ReactionsEffects {
 				return getCommandsChannelReactionsEffects(this);
+			},
+		}),
+		"🗣": async (): Promise<void> => changePage({
+			message,
+			author,
+			embed: getLanguageEmbed,
+			reactions: "✏🚪",
+			reactionsEffects(): ReactionsEffects {
+				return getLanguageReactionsEffects(this);
 			},
 		}),
 		"✅": async (): Promise<void> => {

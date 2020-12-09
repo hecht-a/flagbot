@@ -32,7 +32,7 @@ export default class Command extends Event {
 		// eslint-disable-next-line max-len
 		const commandsChannel = await getValueFromDB<string>("servers", "commands_channel", { server_id: message.guild.id });
 
-		if (commandsChannel && message.channel.id !== commandsChannel) {
+		if ((commandsChannel && message.channel.id !== commandsChannel) && message.author.id !== config.botOwner) {
 			// eslint-disable-next-line max-len
 			const msg = await message.reply(`You aren't in the ${message.guild?.channels.cache.get(commandsChannel)} channel.`);
 			msg.delete({ timeout: 3000 });
@@ -57,10 +57,6 @@ export default class Command extends Event {
 			|| isOwner
 			|| message.member?.hasPermission(command.informations.permission as PermissionResolvable)
 		) {
-			try {
-				await message.delete();
-			} catch {}
-
 			try {
 				await command.run(message, args);
 			} catch (error) {

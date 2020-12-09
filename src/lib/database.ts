@@ -123,4 +123,18 @@ export async function databaseCheck(): Promise<void> {
 		});
 		console.info("Lichess table created successfully.");
 	}
+
+	const gamesTableExists = await db.schema.hasTable("games");
+
+	if (!gamesTableExists) {
+		await db.schema.createTable("games", (table) => {
+			table.string("server_id");
+			table.string("discord_id");
+			table.primary(["server_id", "discord_id"]);
+			table.integer("flag_points");
+			table.integer("flag_wins");
+			table.integer("flag_loses");
+		});
+		console.info("Lichess table created successfully.");
+	}
 }
