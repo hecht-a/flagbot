@@ -97,7 +97,7 @@ export default class Geoguessr extends Command {
 				n = Math.floor(Math.random() * Object.keys(countries).length);
 				country = Object.keys(countries)[n];
 			}
-			console.log(country);
+
 			if (result[emotes[i]] === "") {
 				result[emotes[i]] = country;
 				randomCountries.push(country);

@@ -1,9 +1,13 @@
-import { Message, PermissionResolvable } from "discord.js";
+/* eslint-disable max-len */
+import {
+	Message, MessageEmbed, PermissionResolvable, TextChannel,
+} from "discord.js";
 import { Event } from "../../classes/Event";
 import { getValueFromDB } from "../../functions/getValueFromDB";
 import * as config from "../../config.json";
 import { sendError } from "../../functions/sendError";
 import { Client } from "../../classes/Client";
+import { formatDate } from "../../functions/formatDate";
 
 export default class Command extends Event {
 	constructor(client: Client) {
@@ -24,6 +28,43 @@ export default class Command extends Event {
 		}
 
 		const prefix = await getValueFromDB<string>("servers", "prefix", { server_id: message.guild.id });
+
+		// eslint-disable-next-line max-len
+		const pattern = /https?:\/\/(?<subdomain>canary.|ptb.)?discord(app)?.com\/channels\/(?<guild>\d+)\/(?<channel>\d+)\/(?<message>\d+)/gmi;
+
+		if (message.content.match(pattern) !== null) {
+			const executed = pattern.exec(message.content);
+			const groups = executed?.groups;
+			if (groups) {
+				const fetchedGuild = this.client.guilds.fetch(groups.guild);
+				const fetchedChannel = (await fetchedGuild).channels.cache.get(groups.channel) as TextChannel;
+				const fetchedMessage = fetchedChannel?.messages.fetch(groups.message);
+				const embed = new MessageEmbed()
+					.setFooter(`Quoted by ${message.author.tag} | in #${(fetchedChannel).name} at ${(await fetchedGuild).name} • ${formatDate((await fetchedMessage).createdTimestamp)}`)
+					.setAuthor((await fetchedMessage).author.tag, (await fetchedMessage).author.displayAvatarURL())
+					.setThumbnail((await fetchedMessage).author.displayAvatarURL());
+
+				if ((await fetchedMessage).content) {
+					embed.setColor("RED")
+						.setDescription((await fetchedMessage).content);
+				} else {
+					const fetchedEmbed = (await fetchedMessage).embeds[0];
+					if (fetchedEmbed.color) {
+						embed.setColor(fetchedEmbed.color);
+					}
+					if (fetchedEmbed.title) {
+						embed.setTitle(fetchedEmbed.title);
+					}
+					if (fetchedEmbed.description) {
+						embed.setDescription(fetchedEmbed.description);
+					}
+					if (fetchedEmbed.fields) {
+						embed.addFields(fetchedEmbed.fields);
+					}
+				}
+				message.channel.send(embed);
+			}
+		}
 
 		if (!message.content.startsWith(prefix)) {
 			return;
