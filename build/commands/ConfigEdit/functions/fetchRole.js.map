@@ -1,1 +1,0 @@
-{"version":3,"file":"fetchRole.js","sourceRoot":"","sources":["../../../../src/commands/ConfigEdit/functions/fetchRole.ts"],"names":[],"mappings":";;;AAEA,SAAgB,SAAS,CAAC,KAAY,EAAE,EAAa;IACpD,IAAI;QACH,OAAO,KAAK,CAAC,KAAK,CAAC,KAAK,CAAC,GAAG,CAAC,EAAE,CAAC,CAAC;KACjC;IAAC,MAAM,GAAE;AACX,CAAC;AAJD,8BAIC"}

@@ -22,10 +22,10 @@ export default class PlayerInfo extends Command {
 		// eslint-disable-next-line max-len
 		const username: string = await getValueFromDB("lichess", "lichess_username", { discord_id: message.member?.id });
 
-		const getUser = username || args[0];
+		const getUser = args[0] || username;
 
 		const { data } = await axios.get(`https://lichess.org/api/user/${getUser}`);
 
-		message.channel.send(getPlayerEmbed(message, data));
+		message.channel.send(await getPlayerEmbed(message, data));
 	}
 }

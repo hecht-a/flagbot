@@ -21,7 +21,7 @@ export function getMainEmbedMessage(message: Message, author: User): EmbedMessag
 		message,
 		author,
 		embed: getMainEmbed,
-		reactions: "❗📝📑📃🔨⚒📥📜🖊️⚜️💠📤📄🖋️🤐💻✅",
+		reactions: "❗📝📑📃🔨⚒📥📜🖊️⚜️💠📤📄🖋️🤐💻🗣✅",
 		reactionsEffects: (): ReactionsEffects => getMainReactionsEffects(message, author),
 	});
 }

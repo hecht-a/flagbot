@@ -2,7 +2,7 @@ import * as knex from "knex";
 import * as path from "path";
 import { Snowflake } from "discord.js";
 
-const dbPath = path.join(__dirname, "../db.db");
+const dbPath = path.join(__dirname, "../../db.db");
 console.log(dbPath);
 export const db = knex({
 	client: "sqlite3",
@@ -120,6 +120,20 @@ export async function databaseCheck(): Promise<void> {
 		await db.schema.createTable("lichess", (table) => {
 			table.string("discord_id").primary();
 			table.string("lichess_username");
+		});
+		console.info("Lichess table created successfully.");
+	}
+
+	const gamesTableExists = await db.schema.hasTable("games");
+
+	if (!gamesTableExists) {
+		await db.schema.createTable("games", (table) => {
+			table.string("server_id");
+			table.string("discord_id");
+			table.primary(["server_id", "discord_id"]);
+			table.integer("flag_points");
+			table.integer("flag_wins");
+			table.integer("flag_loses");
 		});
 		console.info("Lichess table created successfully.");
 	}
